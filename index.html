@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éditeur & Assembleur LaTeX</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="./style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+</head>
+<body>
+
+<div class="tabs">
+  <button id="tab-editor" class="active">Éditeur de tableau</button>
+  <button id="tab-assembler">Assembleur</button>
+</div>
+
+<!-- Éditeur -->
+<div id="editor" class="tab-content active">
+  <div class="controls">
+    Lignes <input type="number" id="rows" value="2" min="1">
+    Colonnes <input type="number" id="cols" value="2" min="1">
+    <label><input type="checkbox" id="borders" checked> Bordures</label>
+  </div>
+  <div id="alignControls"></div>
+  <table id="editorTable"></table>
+
+  <div class="code-render">
+    <div class="code-container">
+      <button class="copy-btn" onclick="copyCode('latexCode')">Copier</button>
+      <button class="clear-btn" onclick="resetTable()">Effacer</button>
+      <code id="latexCode"></code>
+    </div>
+    <div class="render-container" id="latexRender"></div>
+  </div>
+</div>
+
+<!-- Assembleur -->
+<div id="assembler" class="tab-content">
+  <textarea id="assemblerInput" placeholder="Collez vos codes ici" style="width:90%;height:120px;border-radius:10px;background:#111;color:#ffd700;font-size:16px;padding:10px;"></textarea>
+  <div class="code-render">
+    <div class="code-container">
+      <button class="copy-btn" onclick="copyCode('assemblerCode')">Copier</button>
+      <button class="clear-btn" onclick="clearAssembler()">Effacer</button>
+      <code id="assemblerCode"></code>
+    </div>
+    <div class="render-container" id="assemblerRender"></div>
+  </div>
+  <div class="code-render">
+    <div class="code-container">
+      <button class="copy-btn" onclick="copyCode('arrayCode')">Copier</button>
+      <code id="arrayCode"></code>
+    </div>
+    <div class="render-container" id="arrayRender"></div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
