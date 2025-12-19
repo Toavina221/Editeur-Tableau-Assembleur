@@ -269,6 +269,38 @@ document.querySelector(".cut-btn").addEventListener("click", async () => {
     arrayRender.innerHTML="";
 });
 
+document.querySelectorAll(".cut-btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    // Déterminer quel bouton est cliqué pour agir sur la zone correspondante
+    const container = btn.closest(".code-container");
+
+    if (!container) return;
+
+    // Chercher le <code> et le <textarea> ou autre zone à couper
+    const code = container.querySelector("code");
+    const textarea = container.querySelector("textarea");
+
+    let text = "";
+
+    if (textarea && textarea.value.trim()) text = textarea.value;
+    else if (code && code.innerText.trim()) text = code.innerText;
+    else return; // rien à couper
+
+    try {
+      await navigator.clipboard.writeText(text); // copier
+    } catch (err) {
+      console.error("Impossible de copier :", err);
+    }
+
+    // Effacer le contenu
+    if (textarea) textarea.value = "";
+    if (code) code.innerText = "";
+    const render = container.nextElementSibling;
+    if (render) render.innerHTML = "";
+  });
+});
+
+
 
 
 
