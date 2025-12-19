@@ -1,53 +1,4 @@
- 
-/* body { margin:0px;height: 100vh ; font-family:cursive,sans-serif; background:linear-gradient(black, rgb(64, 61, 61), black   ); color:#f1f1f1; text-align:center;  } */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #f1f1f1;
-  text-align: center;
-
-  /* Fond sombre réaliste avec gradient et texture */
-  background-color: #121212; /* couleur de base très sombre */
-  background-image: 
-    radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(160deg, #1c1c1c, #0d0d0d);
-  background-size: 20px 20px, cover; /* texture légère + gradient */
-  background-blend-mode: overlay;
-}
-
-.tabs { display:flex; justify-content:center; background:#111; padding:10px; gap:10px; height: 50px; }
-.tabs button { padding:10px 20px; border:none; border-radius:20px; background:#222; color:#a8a8a8; cursor:pointer; font-size:16px; }
-.tabs button.active { background:#444; color:#ffd700; font-weight:bold; }
-.tab-content { display:none; padding:20px; }
-.tab-content.active { display:block; }
-#editorTable td { border:1px solid #ccc; min-width:60px; height:40px;   text-align:center; }
-#editorTable { border-collapse: collapse; margin:20px auto;  }
-input[type="number"] { width:70px; padding:8px; border-radius:10px; border:none; text-align:center; font-size:16px; background:#111; color:#ffd700; }
-.controls { margin:10px; }
-select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
-.code-render { display:flex; justify-content:space-around; flex-wrap:wrap; margin-top:20px; }
-.code-container { background:#111; border-radius:10px; padding:15px; width:45%; overflow-x:auto; position:relative; font-size:16px; text-align:left; }
-.code-container code { font-family: 'Courier New', Courier, monospace, Geneva, Tahoma, sans-serif, Helvetica, sans-serif, monospace; white-space:pre; }
-.render-container { background:#222; border:2px solid #444; border-radius:10px; padding:20px; width:45%; min-height:20vh; font-size:18px; display:flex; justify-content:center; align-items:center; }
-.copy-btn, .clear-btn { margin:8px; padding:8px 14px; border:none; border-radius:12px; cursor:pointer; font-size:14px; }
-.copy-btn {    
-    background-image: linear-gradient(#5da1e7, #124079 80%);
-    color: #fff; }
-.cut-btn{    margin: 8px;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-         font-size:14px;
-  background-image: linear-gradient(#B384C9, #391F5B 50%);  color: #FFFFFF;}
-
-.clear-btn {  color: papayawhip;
-  background-image: linear-gradient(to bottom right, #EF4765, #FF9A5A);}
-@media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
-
-/* Thème sombre amélioré - Abordable et esthétique */
+  
 :root {
   --primary-dark: #0a0e17;
   --secondary-dark: #121826;
@@ -471,5 +422,6 @@ textarea:focus {
 
 
  */
+
 
 
