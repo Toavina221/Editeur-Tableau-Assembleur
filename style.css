@@ -229,7 +229,7 @@ input[type="number"]:focus, select:focus {
   font-family: 'Fira Code', 'Courier New', monospace;
   white-space: pre;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   display: block;
   padding: 10px;
@@ -422,6 +422,7 @@ textarea:focus {
 
 
  */
+
 
 
 
