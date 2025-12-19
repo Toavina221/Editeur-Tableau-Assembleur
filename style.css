@@ -27,10 +27,11 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
   background-image: linear-gradient(#B384C9, #391F5B 50%);  color: #FFFFFF;
 
 .clear-btn {  color: papayawhip;
-  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);}
+  background-image: linear-gradient(to bottom right, #EF4765, #FF9A5A);}
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
