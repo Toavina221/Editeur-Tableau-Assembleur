@@ -22,8 +22,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
     border: none;
     border-radius: 12px;
     cursor: pointer;
-          font-size: 14rem;
-         
+         font-size:14px;
   background: radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b); color:#fff; 
 
 .clear-btn {  color: papayawhip;
@@ -31,6 +30,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
