@@ -69,12 +69,22 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 * {
   box-sizing: border-box;
 }
+/* Solution avec délai d'activation */
 .tabs button, 
 .copy-btn, .clear-btn, .cut-btn,
-input[type="number"], select, textarea,
-.code-container, .render-container,
-#editorTable td {
-  transition: var(--hover-transition);
+input[type="number"], select, textarea {
+  /* Pas de transition initiale */
+}
+
+/* Activez les transitions après chargement via JavaScript */
+body.transitions-enabled .tabs button,
+body.transitions-enabled .copy-btn,
+body.transitions-enabled .clear-btn,
+body.transitions-enabled .cut-btn,
+body.transitions-enabled input[type="number"],
+body.transitions-enabled select,
+body.transitions-enabled textarea {
+  transition: all 0.3s ease;
 }
 
 body {
@@ -461,4 +471,5 @@ textarea:focus {
 
 
  */
+
 
