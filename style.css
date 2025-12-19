@@ -24,10 +24,11 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
     font-size: 14px;
     background-color: rgb(255 215 0);
     color: #000000;
-.clear-btn { background:#c00; color:#fff; }
+.clear-btn { background:red; color:white; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
