@@ -44,9 +44,9 @@ function formatLineGrouped(line){
     }
   }
 
-  // function isWord(str){
-  //   return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
-  // }
+  function isWord(str){
+    return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
+  }
   // Dans le traitement des tokens
 if (/^[A-Z]{2,}$/.test(t)) {
   // Si c'est une séquence de lettres majuscules, c'est probablement des variables mathématiques
@@ -351,6 +351,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
