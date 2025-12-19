@@ -15,7 +15,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 .code-container code { font-family: 'Courier New', Courier, monospace, Geneva, Tahoma, sans-serif, Helvetica, sans-serif, monospace; white-space:pre; }
 .render-container { background:#222; border:2px solid #444; border-radius:10px; padding:20px; width:45%; min-height:100px; font-size:18px; display:flex; justify-content:center; align-items:center; }
 .copy-btn, .clear-btn { margin:8px; padding:8px 14px; border:none; border-radius:12px; cursor:pointer; font-size:14px; }
-.copy-btn { background:#ffd700; color:#f3cd00e0; }
+.copy-btn { background:#f3cd00e0; color:#fff; }
 .cut-btn{    margin: 8px;
     padding: 8px 14px;
     border: none;
@@ -28,6 +28,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
