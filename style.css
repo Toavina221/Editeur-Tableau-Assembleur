@@ -1,5 +1,22 @@
  
-body { margin:0px;height: 100vh ; font-family:cursive,sans-serif; background:linear-gradient(black, rgb(64, 61, 61), black   ); color:#f1f1f1; text-align:center;  }
+/* body { margin:0px;height: 100vh ; font-family:cursive,sans-serif; background:linear-gradient(black, rgb(64, 61, 61), black   ); color:#f1f1f1; text-align:center;  } */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f1f1f1;
+  text-align: center;
+
+  /* Fond sombre réaliste avec gradient et texture */
+  background-color: #121212; /* couleur de base très sombre */
+  background-image: 
+    radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(160deg, #1c1c1c, #0d0d0d);
+  background-size: 20px 20px, cover; /* texture légère + gradient */
+  background-blend-mode: overlay;
+}
+
 .tabs { display:flex; justify-content:center; background:#111; padding:10px; gap:10px; height: 50px; }
 .tabs button { padding:10px 20px; border:none; border-radius:20px; background:#222; color:#a8a8a8; cursor:pointer; font-size:16px; }
 .tabs button.active { background:#444; color:#ffd700; font-weight:bold; }
@@ -31,6 +48,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
