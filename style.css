@@ -68,6 +68,12 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 
 * {
   box-sizing: border-box;
+}
+.tabs button, 
+.copy-btn, .clear-btn, .cut-btn,
+input[type="number"], select, textarea,
+.code-container, .render-container,
+#editorTable td {
   transition: var(--hover-transition);
 }
 
@@ -455,3 +461,4 @@ textarea:focus {
 
 
  */
+
