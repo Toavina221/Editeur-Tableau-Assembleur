@@ -48,9 +48,7 @@ function formatLineGrouped(line){
     return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
   }
 
-else if(isWord(t)){
-  buffer.push(t); // mots normaux
-}
+
 
   tokens.forEach((t,i)=>{
     if(!t || /^\s+$/.test(t)){
@@ -352,6 +350,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
