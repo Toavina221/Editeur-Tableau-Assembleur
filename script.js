@@ -308,6 +308,13 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
   });
 });
 
+// Dans votre script.js
+window.addEventListener('load', function() {
+  // Attendre que la page soit complètement chargée
+  setTimeout(function() {
+    document.body.classList.add('transitions-enabled');
+  }, 100);
+});
 
 
 
