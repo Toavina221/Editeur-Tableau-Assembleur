@@ -23,12 +23,14 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
     border-radius: 12px;
     cursor: pointer;
     font-size: 14px;
-         background:#f3cd00e0; color:#fff; 
+          background-color:#f3cd00e0; color:#fff; 
 
-.clear-btn { background:red; color:white; }
+.clear-btn {  color: papayawhip;
+     background-color: #f10a0a; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
