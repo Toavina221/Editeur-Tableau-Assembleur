@@ -44,9 +44,18 @@ function formatLineGrouped(line){
     }
   }
 
-  function isWord(str){
-    return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
-  }
+  // function isWord(str){
+  //   return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
+  // }
+  // Dans le traitement des tokens
+if (/^[A-Z]{2,}$/.test(t)) {
+  // Si c'est une séquence de lettres majuscules, c'est probablement des variables mathématiques
+  flushBuffer();
+  result += t.split('').join(' ') + " "; // "AB" -> "A B"
+} 
+else if(isWord(t)){
+  buffer.push(t); // mots normaux
+}
 
   tokens.forEach((t,i)=>{
     if(!t || /^\s+$/.test(t)){
@@ -111,15 +120,7 @@ function runTests() {
     { input: "\\overrightarrow{AB}", expected: "\\overrightarrow{AB}" },
     { input: "a, moins", expected: "a, \\text{ moins }" }, // mixte
   ];
-// Dans le traitement des tokens
-if (/^[A-Z]{2,}$/.test(t)) {
-  // Si c'est une séquence de lettres majuscules, c'est probablement des variables mathématiques
-  flushBuffer();
-  result += t.split('').join(' ') + " "; // "AB" -> "A B"
-} 
-else if(isWord(t)){
-  buffer.push(t); // mots normaux
-}
+
   console.log("=== Tests formatLineGrouped ===");
   let ok = 0;
   cases.forEach(({ input, expected }, i) => {
@@ -350,6 +351,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
