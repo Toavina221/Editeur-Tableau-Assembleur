@@ -256,7 +256,7 @@ bordersInput.addEventListener("change",generateLatex);
 buildTable();
 
  
-document.querySelector("cut-btn").addEventListener("click", async () => {
+document.querySelector("cut").addEventListener("click", async () => {
   const textcode = document.getElementById("assemblerCode");
   const text = textcode.innerText;
   if (!text.trim()) return;
@@ -264,6 +264,7 @@ document.querySelector("cut-btn").addEventListener("click", async () => {
   await navigator.clipboard.writeText(text); // copie
   textcode.innerText = "";                        // supprime (effet couper)
 });
+
 
 
 
