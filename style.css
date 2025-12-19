@@ -22,11 +22,13 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
     border-radius: 12px;
     cursor: pointer;
     font-size: 14px;
-     background  : green ; color : violet }
+    background-color: #a3a7a3;
+    color: #000000;
 .clear-btn { background:#c00; color:#fff; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
