@@ -293,12 +293,14 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     }
 
     // Effacer le contenu
-    if (textarea) textarea.value = "";
-    if (code) code.innerText = "";
-    const render = container.nextElementSibling;
-    if (render) render.innerHTML = "";
+    if (assemblerInput) assemblerInput.value = "";
+    if (assemblerCode) assemblerCode.innerText = "";
+    if (assemblerRender) assemblerRender.innerHTML = "";
+    if (arrayCode) arrayCode.innerText = "";
+    if (arrayRender) arrayRender.innerHTML = "";
   });
 });
+
 
 
 
