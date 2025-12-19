@@ -255,13 +255,7 @@ bordersInput.addEventListener("change",generateLatex);
 
 buildTable();
 
-document.getElementById("cut-btn").addEventListener("click",async ()=>{
-  const textcode  = document.getElementbyid("assemblercode");
-  cont text = textarea.value;
-
-  await navigator.clipboard.writeText(text);//copie le texte
-  textcoce.value = "";
-});
+ 
 document.getElementById("cutBtn").addEventListener("click", async () => {
   const textcode = document.getElementById("assemblerCode");
   const text = textcode.value;
@@ -269,6 +263,7 @@ document.getElementById("cutBtn").addEventListener("click", async () => {
   await navigator.clipboard.writeText(text); // copie
   textcode.value = "";                        // supprime (effet couper)
 });
+
 
 
 
