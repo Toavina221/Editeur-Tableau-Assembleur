@@ -316,9 +316,15 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
       
       // Effacer quand même le code
       codeElement.innerText = "";
+   assemblerInput.value ="";                      // supprime (effet couper)
+    assemblerCode.innerText = "";
+      assemblerRender.innerHTML="";
+    arrayCode.innerHTML="";
+      arrayRender.innerHTML="";
     }
   });
 });
+
 
 
 
