@@ -1,4 +1,9 @@
-
+window.addEventListener('load', function() {
+  // Attendre que la page soit complètement chargée
+  setTimeout(function() {
+    document.body.classList.add('transitions-enabled');
+  }, 100);
+});
 // Onglets
 const tabs=document.querySelectorAll('.tabs button');
 const contents=document.querySelectorAll('.tab-content');
@@ -269,32 +274,50 @@ buildTable();
 //     arrayRender.innerHTML="";
 // });
 
+
 document.querySelectorAll(".cut-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
     const container = btn.closest(".tab-content"); // chercher le conteneur parent du bloc
 
     if (!container) return;
-
-    // Chercher tous les éléments à effacer dans ce container
-    const assemblerInput = container.querySelector("#assemblerInput");
-    const assemblerCode = container.querySelector("#assemblerCode");
-    const assemblerRender = container.querySelector("#assemblerRender");
-    const arrayCode = container.querySelector("#arrayCode");
-    const arrayRender = container.querySelector("#arrayRender");
-    const latexCode = container.querySelector("#latexCode");
-    const latexRender = container.querySelector("#latexRender");
+    
+    // Pour l'éditeur, on a aussi les cellules du tableau
+    const editorTable = container.querySelector("#editorTable");
+    const tableCells = editorTable ? editorTable.querySelectorAll("td input") : [];
 
     // Récupérer le texte à copier (textarea ou code)
     let text = "";
     if (assemblerInput && assemblerInput.value.trim()) text = assemblerInput.value;
     else if (assemblerCode && assemblerCode.innerText.trim()) text = assemblerCode.innerText;
     else if (latexCode && latexCode.innerText.trim()) text = latexCode.innerText;
+    else if (arrayCode && arrayCode.innerText.trim()) text = arrayCode.innerText;
     else return;
 
     try {
       await navigator.clipboard.writeText(text); // copier
+      // Feedback visuel
+      const originalText = btn.textContent;
+      btn.textContent = "✓ Copié!";
+      btn.style.background = "linear-gradient(135deg, #4CAF50, #2E7D32)";
+      
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "";
+      }, 1500);
+      
     } catch (err) {
       console.error("Impossible de copier :", err);
+      // Fallback pour les anciens navigateurs
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {
+        console.error("Fallback copy failed:", e);
+      }
+      document.body.removeChild(textArea);
     }
 
     // Effacer tous les éléments
@@ -305,19 +328,13 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     if (arrayRender) arrayRender.innerHTML = "";
     if (latexCode) latexCode.innerText = "";
     if (latexRender) latexRender.innerHTML = "";
+    
+    // Effacer aussi les cellules du tableau si on est dans l'éditeur
+    tableCells.forEach(cell => {
+      cell.value = "";
+    });
   });
-});
-
-// Dans votre script.js
-window.addEventListener('load', function() {
-  // Attendre que la page soit complètement chargée
-  setTimeout(function() {
-    document.body.classList.add('transitions-enabled');
-  }, 100);
-});
-
-
-
+}); 
 
 
 
