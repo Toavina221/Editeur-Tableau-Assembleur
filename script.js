@@ -256,18 +256,18 @@ bordersInput.addEventListener("change",generateLatex);
 buildTable();
 
  
-document.querySelector(".cut-btn").addEventListener("click", async () => {
-  const textcode = document.getElementById("assemblerCode");
-  const text = textcode.innerText;
-  if (!text.trim()) return;
+// document.querySelector(".cut-btn").addEventListener("click", async () => {
+//   const textcode = document.getElementById("assemblerCode");
+//   const text = textcode.innerText;
+//   if (!text.trim()) return;
 
-  await navigator.clipboard.writeText(text); // copie
-  assemblerInput.value ="";                      // supprime (effet couper)
-   assemblerCode.innerText = "";
-    assemblerRender.innerHTML="";
-    arrayCode.innerHTML="";
-    arrayRender.innerHTML="";
-});
+//   await navigator.clipboard.writeText(text); // copie
+//   assemblerInput.value ="";                      // supprime (effet couper)
+//    assemblerCode.innerText = "";
+//     assemblerRender.innerHTML="";
+//     arrayCode.innerHTML="";
+//     arrayRender.innerHTML="";
+// });
 
 document.querySelectorAll(".cut-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
@@ -307,6 +307,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     if (latexRender) latexRender.innerHTML = "";
   });
 });
+
 
 
 
