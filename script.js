@@ -277,24 +277,20 @@ buildTable();
 
 document.querySelectorAll(".cut-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
-    const container = btn.closest(".tab-content"); // chercher le conteneur parent du bloc
-
-    if (!container) return;
+    // Trouver seulement le conteneur de code
+    const codeContainer = btn.closest(".code-container");
+    if (!codeContainer) return;
     
-    // Pour l'éditeur, on a aussi les cellules du tableau
-    const editorTable = container.querySelector("#editorTable");
-    const tableCells = editorTable ? editorTable.querySelectorAll("td input") : [];
-
-    // Récupérer le texte à copier (textarea ou code)
-    let text = "";
-    else if (assemblerCode && assemblerCode.innerText.trim()) text = assemblerCode.innerText;
-    if (assemblerInput && assemblerInput.value.trim()) text = assemblerInput.value;
-    else if (latexCode && latexCode.innerText.trim()) text = latexCode.innerText;
-    else if (arrayCode && arrayCode.innerText.trim()) text = arrayCode.innerText;
-    else return;
-
+    // Chercher uniquement l'élément <code> dans ce conteneur
+    const codeElement = codeContainer.querySelector("code");
+    if (!codeElement) return;
+    
+    const text = codeElement.innerText.trim();
+    if (!text) return;
+    
     try {
-      await navigator.clipboard.writeText(text); // copier
+      await navigator.clipboard.writeText(text);
+      
       // Feedback visuel
       const originalText = btn.textContent;
       btn.textContent = "✓ Copié!";
@@ -305,36 +301,24 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
         btn.style.background = "";
       }, 1500);
       
+      // Effacer UNIQUEMENT ce code
+      codeElement.innerText = "";
+      
     } catch (err) {
-      console.error("Impossible de copier :", err);
-      // Fallback pour les anciens navigateurs
+      console.error("Erreur:", err);
+      // Fallback simple
       const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
       textArea.select();
-      try {
-        document.execCommand('copy');
-      } catch (e) {
-        console.error("Fallback copy failed:", e);
-      }
+      document.execCommand('copy');
       document.body.removeChild(textArea);
+      
+      // Effacer quand même le code
+      codeElement.innerText = "";
     }
-
-    // Effacer tous les éléments
-    if (assemblerInput) assemblerInput.value = "";
-    if (assemblerCode) assemblerCode.innerText = "";
-    if (assemblerRender) assemblerRender.innerHTML = "";
-    if (arrayCode) arrayCode.innerText = "";
-    if (arrayRender) arrayRender.innerHTML = "";
-    if (latexCode) latexCode.innerText = "";
-    if (latexRender) latexRender.innerHTML = "";
-    
-    // Effacer aussi les cellules du tableau si on est dans l'éditeur
-    tableCells.forEach(cell => {
-      cell.value = "";
-    });
   });
-}); 
+});
 
 
 
