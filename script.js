@@ -21,7 +21,7 @@ const latexCmds=["\\frac","\\hline","\\begin","\\end","\\sqrt","\\text","\\mathr
 
 function formatToken(token){
   // "à" ou mot >1 lettre -> texte
-  if(token.toLowerCase() === "à" || token.length > 1) return "\\text{ "+token+" }";
+  if(token.toLowerCase() === "à" || token.toLowerCase() === "a" || token.length > 1) return "\\text{ "+token+" }";
   // une seule lettre -> math
   if(/^[a-zA-Z]$/.test(token)) return token;
   // LaTeX command ou chiffres/symboles
@@ -342,6 +342,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
