@@ -271,20 +271,25 @@ document.querySelector(".cut-btn").addEventListener("click", async () => {
 
 document.querySelectorAll(".cut-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
-    // Déterminer quel bouton est cliqué pour agir sur la zone correspondante
-    const container = btn.closest(".code-container");
+    const container = btn.closest(".tab-content"); // chercher le conteneur parent du bloc
 
     if (!container) return;
 
-    // Chercher le <code> et le <textarea> ou autre zone à couper
-    const code = container.querySelector("code");
-    const textarea = container.querySelector("textarea");
+    // Chercher tous les éléments à effacer dans ce container
+    const assemblerInput = container.querySelector("#assemblerInput");
+    const assemblerCode = container.querySelector("#assemblerCode");
+    const assemblerRender = container.querySelector("#assemblerRender");
+    const arrayCode = container.querySelector("#arrayCode");
+    const arrayRender = container.querySelector("#arrayRender");
+    const latexCode = container.querySelector("#latexCode");
+    const latexRender = container.querySelector("#latexRender");
 
+    // Récupérer le texte à copier (textarea ou code)
     let text = "";
-
-    if (textarea && textarea.value.trim()) text = textarea.value;
-    else if (code && code.innerText.trim()) text = code.innerText;
-    else return; // rien à couper
+    if (assemblerInput && assemblerInput.value.trim()) text = assemblerInput.value;
+    else if (assemblerCode && assemblerCode.innerText.trim()) text = assemblerCode.innerText;
+    else if (latexCode && latexCode.innerText.trim()) text = latexCode.innerText;
+    else return;
 
     try {
       await navigator.clipboard.writeText(text); // copier
@@ -292,14 +297,17 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
       console.error("Impossible de copier :", err);
     }
 
-    // Effacer le contenu
+    // Effacer tous les éléments
     if (assemblerInput) assemblerInput.value = "";
     if (assemblerCode) assemblerCode.innerText = "";
     if (assemblerRender) assemblerRender.innerHTML = "";
     if (arrayCode) arrayCode.innerText = "";
     if (arrayRender) arrayRender.innerHTML = "";
+    if (latexCode) latexCode.innerText = "";
+    if (latexRender) latexRender.innerHTML = "";
   });
 });
+
 
 
 
