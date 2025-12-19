@@ -313,17 +313,36 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
       textArea.select();
       document.execCommand('copy');
       document.body.removeChild(textArea);
-      
-      // Effacer quand même le code
-      codeElement.innerText = "";
-   assemblerInput.value ="";                      // supprime (effet couper)
-    assemblerCode.innerText = "";
-      assemblerRender.innerHTML="";
-    arrayCode.innerHTML="";
-      arrayRender.innerHTML="";
     }
+    // EFFACER TOUT dans l'onglet parent
+    const tabContent = btn.closest(".tab-content");
+    if (tabContent) {
+      if (tabContent.id === "editor") {
+        // Éditeur - effacer tout
+        document.getElementById("latexCode").innerText = "";
+        document.getElementById("latexRender").innerHTML = "";
+        
+        // Effacer aussi les cellules du tableau
+        const tableCells = document.querySelectorAll("#editorTable td input");
+        tableCells.forEach(cell => {
+          cell.value = "";
+        });
+      } 
+      else if (tabContent.id === "assembler") {
+        // Assembleur - effacer TOUT
+        document.getElementById("assemblerInput").value = "";
+        document.getElementById("assemblerCode").innerText = "";
+        document.getElementById("assemblerRender").innerHTML = "";
+        document.getElementById("arrayCode").innerText = "";
+        document.getElementById("arrayRender").innerHTML = "";
+      }
+    }
+    
+    // Effacer aussi UNIQUEMENT ce code (pour être sûr)
+    codeElement.innerText = "";
   });
 });
+
 
 
 
