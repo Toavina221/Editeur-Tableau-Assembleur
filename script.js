@@ -252,4 +252,10 @@ rowsInput.addEventListener("input",buildTable);
 colsInput.addEventListener("input",buildTable);
 bordersInput.addEventListener("change",generateLatex);
 
+
 buildTable();
+
+document.getElementById("cut-btn").addEventListener("click",()->{
+  const textcode 
+});
+
