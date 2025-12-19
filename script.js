@@ -255,7 +255,12 @@ bordersInput.addEventListener("change",generateLatex);
 
 buildTable();
 
-document.getElementById("cut-btn").addEventListener("click",()->{
-  const textcode 
+document.getElementById("cut-btn").addEventListener("click",async ()=>{
+  const textcode  = document.getElementbyid("assemblercode");
+  cont text = textarea.value;
+
+  await navigator.clipboard.writeText(text);//copie le texte
+  textcoce.value = "";
 });
+
 
