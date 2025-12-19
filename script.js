@@ -263,7 +263,9 @@ document.querySelector(".cut-btn").addEventListener("click", async () => {
 
   await navigator.clipboard.writeText(text); // copie
   assemblerInput.value ="";                      // supprime (effet couper)
+   assemblerCode.innerText = "";
 });
+
 
 
 
