@@ -16,7 +16,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 .render-container { background:#222; border:2px solid #444; border-radius:10px; padding:20px; width:45%; min-height:100px; font-size:18px; display:flex; justify-content:center; align-items:center; }
 .copy-btn, .clear-btn { margin:8px; padding:8px 14px; border:none; border-radius:12px; cursor:pointer; font-size:14px; }
 .copy-btn {    
-  background-image: linear-gradient(#B384C9, #391F5B 80%);
+    background-image: linear-gradient(#5da1e7, #124079 80%);
     color: #fff; }
 .cut-btn{    margin: 8px;
     padding: 8px 14px;
@@ -31,6 +31,7 @@ select { padding:5px; border-radius:8px; background:#111; color:#ffd700; }
 @media(max-width:768px){ .code-render{ flex-direction:column; align-items:center; } .code-container, .render-container{ width:90%; margin-bottom:15px; } }
 
  
+
 
 
 
