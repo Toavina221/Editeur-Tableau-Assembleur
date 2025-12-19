@@ -287,8 +287,8 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
 
     // Récupérer le texte à copier (textarea ou code)
     let text = "";
-    if (assemblerInput && assemblerInput.value.trim()) text = assemblerInput.value;
     else if (assemblerCode && assemblerCode.innerText.trim()) text = assemblerCode.innerText;
+    if (assemblerInput && assemblerInput.value.trim()) text = assemblerInput.value;
     else if (latexCode && latexCode.innerText.trim()) text = latexCode.innerText;
     else if (arrayCode && arrayCode.innerText.trim()) text = arrayCode.innerText;
     else return;
@@ -335,6 +335,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     });
   });
 }); 
+
 
 
 
