@@ -262,8 +262,9 @@ document.querySelector(".cut-btn").addEventListener("click", async () => {
   if (!text.trim()) return;
 
   await navigator.clipboard.writeText(text); // copie
-  textcode.innerText = "";                        // supprime (effet couper)
+  clearAssembler();                      // supprime (effet couper)
 });
+
 
 
 
