@@ -262,5 +262,13 @@ document.getElementById("cut-btn").addEventListener("click",async ()=>{
   await navigator.clipboard.writeText(text);//copie le texte
   textcoce.value = "";
 });
+document.getElementById("cutBtn").addEventListener("click", async () => {
+  const textcode = document.getElementById("assemblerCode");
+  const text = textcode.value;
+
+  await navigator.clipboard.writeText(text); // copie
+  textcode.value = "";                        // supprime (effet couper)
+});
+
 
 
