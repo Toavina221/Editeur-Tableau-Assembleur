@@ -258,11 +258,13 @@ buildTable();
  
 document.getElementById("cutBtn").addEventListener("click", async () => {
   const textcode = document.getElementById("assemblerCode");
-  const text = textcode.value;
+  const text = textcode.innerText;
+  if (!text.trim()) return;
 
   await navigator.clipboard.writeText(text); // copie
-  textcode.value = "";                        // supprime (effet couper)
+  textcode.innerText = "";                        // supprime (effet couper)
 });
+
 
 
 
