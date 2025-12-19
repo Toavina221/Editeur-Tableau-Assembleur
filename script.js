@@ -47,12 +47,7 @@ function formatLineGrouped(line){
   function isWord(str){
     return (str.toLowerCase() === "à") || (/^[a-zA-ZÀ-ÖØ-öø-ÿ]{2,}$/.test(str));
   }
-  // Dans le traitement des tokens
-if (/^[A-Z]{2,}$/.test(t)) {
-  // Si c'est une séquence de lettres majuscules, c'est probablement des variables mathématiques
-  flushBuffer();
-  result += t.split('').join(' ') + " "; // "AB" -> "A B"
-} 
+
 else if(isWord(t)){
   buffer.push(t); // mots normaux
 }
@@ -80,6 +75,12 @@ else if(/^[,.:;!?]$/.test(t)){
     result += t + " ";
   }
 }
+    // Dans le traitement des tokens
+else if (/^[A-Z]{2,}$/.test(t)) {
+  // Si c'est une séquence de lettres majuscules, c'est probablement des variables mathématiques
+  flushBuffer();
+  result += t.split('').join(' ') + " "; // "AB" -> "A B"
+} 
 
 else if(/^\\[a-zA-Z]+$/.test(t)){
   flushBuffer();
@@ -351,6 +352,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
