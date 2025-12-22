@@ -330,7 +330,7 @@ textarea {
 }
 
 textarea:focus {
-  outline: none;
+  outline: blue;
   border-color: var(--accent-gold);
   box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -422,6 +422,7 @@ textarea:focus {
 
 
  */
+
 
 
 
