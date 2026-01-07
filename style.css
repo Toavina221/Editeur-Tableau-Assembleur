@@ -315,6 +315,7 @@ input[type="number"]:focus, select:focus {
 /* Zone de texte */
 textarea {
   width: 90%;
+  border : 2px blue;
   height: 140px;
   border-radius: 12px;
   background: var(--tertiary-dark);
@@ -422,6 +423,7 @@ textarea:focus {
 
 
  */
+
 
 
 
