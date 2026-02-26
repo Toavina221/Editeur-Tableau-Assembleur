@@ -231,7 +231,7 @@ function assemble(){
   let lines=raw.split(/\n/).map(l=>l.trim()).filter(l=>l!=="");
 
   // --- Aligned ---
-  let aligned="\n$\n\\begin{aligned}\n";
+  let aligned="\n$\\left.\n\\begin{aligned}\n";
   lines.forEach(line=>{
     if(/\\begin\{.*?\}/.test(line)){ 
       aligned+=" & "+line+"\n";
@@ -239,7 +239,7 @@ function assemble(){
       aligned+=" & "+formatLineGrouped(line)+" \\\\\n"; 
     }
   });
-  aligned+="\\end{aligned}\n$";
+  aligned+="\\end{aligned}\\right.\n$";
   assemblerCode.innerHTML=aligned;
   try{ katex.render(aligned.replace(/\$/g,""), assemblerRender, {throwOnError:false}); } catch(e){ assemblerRender.innerHTML="<span style='color:red'>Erreur</span>"; }
 
@@ -350,6 +350,7 @@ document.querySelectorAll(".cut-btn").forEach(btn => {
     codeElement.innerText = "";
   });
 });
+
 
 
 
